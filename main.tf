@@ -9,6 +9,7 @@ provider "aws" {
     profile = "default"
     region  = "us-west-2"
 }
+}
 
 #VPC
 resource "aws_vpc" "main" {
