@@ -19,10 +19,9 @@ resource "aws_vpc" "main" {
         Name = "vera-vpc"
     }
 }
-# resource "aws_vpc" "main2" {
-#     cidr_block = "172.31.0.0/16"
-#     tags = {
-#         Name = "vera-vpc3"
-#     }
-# }
-#
+resource "aws_vpc" "main2" {
+    cidr_block = "172.31.0.0/16"
+    tags = {
+        Name = "vera-vpc3"
+    }
+}
