@@ -38,4 +38,21 @@ jobs:
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform -chdir=./production apply -auto-approve
+
+      - name: Terraform init2
+        id: init
+        run: terraform -chdir=./stage init
+      
+      - name: Terraform Plan2
+        id: plan
+        if: github.event_name == 'push'
+        run: terraform -chdir=./stage plan -no-color
+        continue-on-error: true
+
+      - name: Terraform Plan status2
+        if: steps.plan.outcome == 'failure'
+        run: exit 1
+      
+      - name: Terraform Apply2
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform -chdir=./stage apply -auto-approve
