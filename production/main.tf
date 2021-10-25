@@ -24,12 +24,12 @@ provider "aws" {
 resource "aws_vpc" "main" {
     cidr_block = "172.31.0.0/16"
     tags = {
-        Name = "vera-vpc"
+        Name = "veraprod-vpc"
     }
 }
 # resource "aws_vpc" "main2" {
 #     cidr_block = "172.31.0.0/16"
 #     tags = {
-#         Name = "vera-vpc3"
+#         Name = "veraprod-vpc3"
 #     }
 # }
