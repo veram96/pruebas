@@ -40,11 +40,11 @@ jobs:
         run: terraform -chdir=./production apply -auto-approve
 
       - name: Terraform init2
-        id: init
+        id: init2
         run: terraform -chdir=./stage init
       
       - name: Terraform Plan2
-        id: plan
+        id: plan2
         if: github.event_name == 'push'
         run: terraform -chdir=./stage plan -no-color
         continue-on-error: true
