@@ -23,12 +23,12 @@ jobs:
       
       - name: Terraform init
         id: init
-        run: terraform init
+        run: terraform chdir=./production init
       
       - name: Terraform Plan
         id: plan
         if: github.event_name == 'push'
-        run: terraform plan -no-color
+        run: terraform chdir=./production plan -no-color
         continue-on-error: true
 
       - name: Terraform Plan status
